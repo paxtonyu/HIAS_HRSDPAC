@@ -1,0 +1,21 @@
+MODEL:
+  name: "HSCNN"                              # name of model
+  num_classes: 18
+  patch_size: 6                              # patch_size can be important for different datasets
+  # kan_list: [2304, 128, 18]                   # first patch_size * patch_size * 64
+  # dropout: 0.10
+  weights: "./checkpoints/HSCNN/model.pth"   #choose the specific model when test and predict
+  removeZeroLabels: True                      # if False, you need to change the num_classes
+
+SOLVER:
+  mode: "train"           # you can use args like "python main.py --mode train" to reset it. choices=["train", "test", "predict"]
+  pca_components: 34      # channel after pre-processing, equal to input_channels
+  HM_mixup: True          # whether to use mixup between Hyperspectral and Multispectral Image
+  oversample: True       # whether to use oversample on weak class
+  augmentData: True
+  normalize: True
+  batch_size: 64
+  epochs: 50
+  lr: 0.00004
+
+OUTPUT_DIR: "./checkpoints/HSCNN"

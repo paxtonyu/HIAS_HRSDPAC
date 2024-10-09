@@ -1,0 +1,21 @@
+MODEL:
+  name: "CNN_plus_KAN"                              # name of model
+  C1_num: 90                                      # number of filters, C1 = 3*numComponents
+  num_classes: 18
+  patch_size: 5
+  kan_list: [270, 64, 18]
+  dropout: 0.15
+  weights: "./checkpoints/CNN_plus_KAN/model.pth"   #choose the specific model when test and predict
+  removeZeroLabels: True                      # if False, you need to change the num_classes
+
+SOLVER:
+  mode: "train"           # you can use args like "python main.py --mode train" to reset it. choices=["train", "test", "predict"]
+  pca_components: 30      # channel after pre-processing, equal to input_channels
+  HM_mixup: False          # whether to use mixup between Hyperspectral and Multispectral Image
+  oversample: True       # whether to use oversample on weak class
+  augmentData: True
+  batch_size: 256
+  epochs: 12
+  lr: 0.0001
+
+OUTPUT_DIR: "./checkpoints/CNN_plus_KAN"

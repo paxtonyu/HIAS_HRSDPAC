@@ -1,0 +1,26 @@
+MODEL:
+  name: "ViT"                                 # name of model
+  patch_size: 9                               # Size of receptive field, RF
+  num_classes: 18                             # Number of classes
+  dim: 1024                                   # Last dimension of output tensor after linear transformation nn.Linear(..., dim)
+  depth: 2                                    # Number of Transformer blocks
+  heads: 16                                   # Number of heads in Multi-head Attention layer
+  mlp_dim: 1024                               # Dimension of the MLP (FeedForward) layer
+  pool: "cls"                                 # Either cls token pooling or mean pooling
+  dim_head: 64                                # Dimension of each attention head
+  dropout: 0.1                                # Dropout probability in order to prevent overfitting
+  emb_dropout: 0.1                            # Embedding dropout rate
+  weights: "./checkpoints/HS_ViT/model.pth"   #choose the specific model when test and predict
+  removeZeroLabels: True                      # if False, you need to change the num_classes
+
+SOLVER:
+  mode: "train"           # you can use args like "python main.py --mode train" to reset it. choices=["train", "test", "predict"]
+  pca_components: 30      # channel after pre-processing, equal to input_channels
+  HM_mixup: True          # whether to use mixup between Hyperspectral and Multispectral Image
+  oversample: False       # whether to use oversample on weak class
+  augmentData: True
+  batch_size: 256
+  epochs: 100
+  lr: 0.0005
+
+OUTPUT_DIR: "./checkpoints/HS_ViT"

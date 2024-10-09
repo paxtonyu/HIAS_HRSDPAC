@@ -1,0 +1,67 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },        
+        {
+            "name": "MCNN_ViT",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "main.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--mode", "train",
+                "--config", "configs/MCNN_ViT.yaml",
+            ]
+        }, 
+        {
+            "name": "baseCNN",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "main.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--mode", "train",
+                "--config", "configs/baseCNN.yaml",
+            ]
+        },
+        {
+            "name": "CNN_plus_KAN",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "main.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--mode", "train",
+                "--config", "configs/CNN_plus_KAN.yaml",
+            ]
+        },
+        {
+            "name": "ViT",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "main.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--mode", "train",
+                "--config", "configs/ViT.yaml",
+            ]
+        },
+        {
+            "name": "HSCNN",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "main.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--mode", "train",
+                "--config", "configs/HSCNN.yaml",
+            ]
+        },
+    ]
+}
